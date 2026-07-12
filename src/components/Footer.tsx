@@ -1,12 +1,8 @@
 import Link from "next/link";
-import { navLinks, getIcon } from "@/data/services";
+import { navLinks } from "@/data/services";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const PhoneIcon = getIcon("phone");
-  const ClockIcon = getIcon("clock");
-  const MapIcon = getIcon("mapMarker");
-  const SpaIcon = getIcon("spa");
 
   return (
     <footer className="bg-dark text-accent-light" role="contentinfo">
@@ -19,8 +15,8 @@ export function Footer() {
               className="mb-4 inline-flex items-center gap-2.5 text-white no-underline"
               aria-label="Home Spa"
             >
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/20">
-                <SpaIcon className="h-5 w-5 text-accent-light" />
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/20 text-lg">
+                🌸
               </span>
               <span className="text-xl font-bold">
                 <span className="text-accent-light">Home</span> Spa
@@ -55,7 +51,7 @@ export function Footer() {
             <h3 className="mb-5 text-base font-bold text-white">تواصلي معنا</h3>
             <ul className="space-y-4 text-sm text-soft">
               <li className="flex items-start gap-2.5">
-                <PhoneIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-light" />
+                <span className="mt-0.5 text-sm">📞</span>
                 <a
                   href="tel:966549986148"
                   className="text-soft no-underline transition-colors hover:text-accent-light"
@@ -65,11 +61,11 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <ClockIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-light" />
+                <span className="mt-0.5 text-sm">🕐</span>
                 <span>يومياً من 9 صباحاً حتى 10 مساءً</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-light" />
+                <span className="mt-0.5 text-sm">📍</span>
                 <span>الرياض وجميع المدن الكبرى</span>
               </li>
             </ul>

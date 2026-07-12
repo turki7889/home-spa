@@ -2,7 +2,7 @@
 
 import { BookButton } from "@/components/BookButton";
 import { useState } from "react";
-import { whatsappLink, getIcon, WHATSAPP_NUMBER } from "@/data/services";
+import { whatsappLink, WHATSAPP_NUMBER } from "@/data/services";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -17,13 +17,7 @@ export default function ContactPage() {
     window.open(whatsappLink(text), "_blank");
   };
 
-  const ClockIcon = getIcon("clock");
-  const MapIcon = getIcon("mapMarker");
-  const PhoneIcon = getIcon("phone");
-  const WhatsIcon = getIcon("whatsapp");
-  const HomeIcon = getIcon("home");
-
-  return (
+            return (
     <div>
       {/* Page header */}
       <section className="bg-spa-dark py-16 text-center text-white sm:py-20">
@@ -47,7 +41,7 @@ export default function ContactPage() {
             <div className="card overflow-hidden border-2 border-accent/20">
               <div className="bg-accent px-6 py-5 text-white">
                 <div className="flex items-center gap-3">
-                  <WhatsIcon className="h-8 w-8" />
+                  <span className="h-8 w-8">✅</span>
                   <div>
                     <h3 className="text-lg font-bold">تواصلي عبر واتساب</h3>
                     <p className="text-sm text-white/80">الطريقة الأسرع للحجز والاستفسار</p>
@@ -72,21 +66,21 @@ export default function ContactPage() {
               <h3 className="mb-5 text-lg font-bold text-text">معلومات التواصل</h3>
               <ul className="space-y-5">
                 <li className="flex items-start gap-3">
-                  <ClockIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                  <span className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent">✅</span>
                   <div>
                     <p className="text-sm font-bold text-text">ساعات العمل</p>
                     <p className="text-sm text-text-muted">يومياً من 9 صباحاً حتى 10 مساءً</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <MapIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                  <span className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent">✅</span>
                   <div>
                     <p className="text-sm font-bold text-text">منطقة الخدمة</p>
                     <p className="text-sm text-text-muted">الرياض وجميع المدن الكبرى في المملكة</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <PhoneIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                  <span className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent">✅</span>
                   <div>
                     <p className="text-sm font-bold text-text">رقم الجوال</p>
                     <p className="text-sm text-text-muted" dir="ltr">+966 54 998 6148</p>
@@ -168,7 +162,7 @@ export default function ContactPage() {
       <section className="bg-spa-warm py-16 text-center">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-pale text-accent">
-            <HomeIcon className="h-7 w-7" />
+            <span className="h-7 w-7">✅</span>
           </div>
           <h2 className="mb-4 text-2xl font-bold text-text sm:text-3xl">
             نخدم جميع مناطق الرياض

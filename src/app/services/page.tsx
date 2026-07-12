@@ -1,4 +1,4 @@
-import { services, formatPrice, getIcon } from "@/data/services";
+import { services, formatPrice } from "@/data/services";
 import { BookButton } from "@/components/BookButton";
 import type { Metadata } from "next";
 
@@ -32,22 +32,21 @@ export default function ServicesPage() {
       <section className="section">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, idx) => {
-            const Icon = getIcon(service.iconKey);
-            const ClockIcon = getIcon("clock");
-            return (
+            // icon in template;
+                        return (
               <div
                 key={service.id}
                 className="card group flex flex-col p-6 animate-fade-in-up"
                 style={{ animationDelay: `${idx * 0.05}s` }}
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-pale text-accent ring-1 ring-accent/20">
-                  <Icon className="h-6 w-6" />
+                  <span className="h-6 w-6">{service.icon}</span>
                 </div>
 
                 <h3 className="mb-1 text-xl font-bold text-text">{service.name}</h3>
 
                 <div className="mb-2 flex items-center gap-2 text-sm text-text-muted">
-                  <ClockIcon className="h-4 w-4 text-accent" />
+                  <span className="h-4 w-4 text-accent">✅</span>
                   <span>{service.duration}</span>
                 </div>
 
@@ -82,7 +81,7 @@ export default function ServicesPage() {
               </span>
 
               <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-pale text-accent">
-                {(() => { const I = getIcon("sparkles"); return <I className="h-7 w-7" />; })()}
+                <span className="h-7 w-7 text-2xl">✨</span>
               </div>
               <h3 className="mb-2 text-2xl font-bold text-text">مانيكير + بديكير</h3>
               <p className="mb-1 text-sm text-text-muted">المدة: 60 - 75 دقيقة</p>

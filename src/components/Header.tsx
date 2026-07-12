@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { navLinks, getIcon } from "@/data/services";
+import { navLinks } from "@/data/services";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const SpaIcon = getIcon("spa");
 
   return (
     <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-soft" role="banner">
@@ -17,8 +16,8 @@ export function Header() {
           className="flex items-center gap-2.5 text-text no-underline hover:opacity-85 transition-opacity"
           aria-label="الذهاب إلى الصفحة الرئيسية"
         >
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-pale ring-1 ring-accent/20">
-            <SpaIcon className="h-5 w-5 text-accent" />
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-pale ring-1 ring-accent/20 text-lg">
+            🌸
           </span>
           <span className="text-xl font-bold tracking-tight">
             <span className="text-accent">Home</span>{" "}

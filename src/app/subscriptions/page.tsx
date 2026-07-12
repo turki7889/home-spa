@@ -1,4 +1,4 @@
-import { subscriptions, getIcon } from "@/data/services";
+import { subscriptions } from "@/data/services";
 import { BookButton } from "@/components/BookButton";
 import type { Metadata } from "next";
 
@@ -35,9 +35,7 @@ export default function SubscriptionsPage() {
       <section className="section">
         <div className="grid gap-6 lg:grid-cols-3">
           {subscriptions.map((pkg, idx) => {
-            const Icon = getIcon(pkg.iconKey);
-            const CheckIcon = getIcon("checkCircle");
-            const accent = tierAccents[pkg.color];
+                                    const accent = tierAccents[pkg.color];
             const isPopular = pkg.popular;
 
             return (
@@ -55,7 +53,7 @@ export default function SubscriptionsPage() {
                 <div className="flex flex-1 flex-col p-8">
                   <div className="mb-6 text-center">
                     <div className={`mb-3 inline-flex h-14 w-14 items-center justify-center rounded-2xl ${accent.iconBg}`}>
-                      <Icon className="h-7 w-7" />
+                      <span className="h-7 w-7">{pkg.icon}</span>
                     </div>
                     <h2 className="text-2xl font-extrabold text-text">{pkg.name}</h2>
                     <p className="mt-1 text-sm text-text-muted">
@@ -76,7 +74,7 @@ export default function SubscriptionsPage() {
                   <ul className="mb-6 flex-1 space-y-4">
                     {pkg.features.map((feat) => (
                       <li key={feat} className="flex items-start gap-3 text-sm text-text-muted">
-                        <CheckIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                        <span className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent">✅</span>
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -121,10 +119,9 @@ export default function SubscriptionsPage() {
                 <tr className="border-b border-soft">
                   <th className="p-4 text-right text-sm font-bold text-text">الميزة</th>
                   {subscriptions.map((pkg) => {
-                    const Icon = getIcon(pkg.iconKey);
-                    return (
+                                        return (
                       <th key={pkg.id} className="p-4 text-center text-sm font-bold text-text">
-                        <Icon className="inline h-4 w-4 ml-1" />
+                        <span className="inline h-4 w-4 ml-1">{pkg.icon}</span>
                         {pkg.name}
                       </th>
                     );

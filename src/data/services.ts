@@ -1,11 +1,8 @@
 /**
  * ملف البيانات المركزي لموقع Home Spa
  * سبا نسائي فاخر — Muted Dusty palette
- * React Icons replacing all emoji
  * Target: المرأة السعودية — تجربة سبا منزلي أنثوية راقية
  */
-
-import type { IconType } from "react-icons";
 
 // ============================================================
 // أنواع البيانات
@@ -17,7 +14,7 @@ export interface Service {
   duration: string;
   price: number;
   description?: string;
-  iconKey: string;
+  icon: string;
 }
 
 export interface SubscriptionPackage {
@@ -28,7 +25,7 @@ export interface SubscriptionPackage {
   features: string[];
   savings: number;
   popular?: boolean;
-  iconKey: string;
+  icon: string;
   color: "silver" | "gold" | "platinum";
 }
 
@@ -38,84 +35,6 @@ export interface ContactInfo {
   email?: string;
   workingHours: string;
   serviceArea: string;
-}
-
-// ============================================================
-// React Icons — centralized mapping
-// ============================================================
-
-import {
-  FaLeaf,
-  FaPray,
-  FaFlask,
-  FaUserCircle,
-  FaBaby,
-  FaBabyCarriage,
-  FaShoePrints,
-  FaHandSparkles,
-  FaMedal,
-  FaCrown,
-  FaGem,
-  FaWhatsapp,
-  FaPhone,
-  FaClock,
-  FaMapMarkerAlt,
-  FaHome,
-  FaSpa,
-  FaChevronDown,
-  FaEnvelope,
-  FaCalendarAlt,
-  FaCheckCircle,
-} from "react-icons/fa";
-
-import {
-  GiStoneBlock,
-  GiFootprint,
-  GiRosaShield,
-} from "react-icons/gi";
-
-import {
-  LuWaves,
-  LuFlower2,
-  LuSparkles,
-  LuStar,
-} from "react-icons/lu";
-
-const iconMap: Record<string, IconType> = {
-  leaf: FaLeaf,
-  prayer: FaPray,
-  stone: GiStoneBlock,
-  flask: FaFlask,
-  headMassage: FaUserCircle,
-  pregnancy: FaBaby,
-  postnatal: FaBabyCarriage,
-  footMassage: GiFootprint,
-  manicure: FaHandSparkles,
-  pedicure: FaShoePrints,
-  silverMedal: FaMedal,
-  goldMedal: FaMedal,
-  diamond: FaGem,
-  crown: FaCrown,
-  clock: FaClock,
-  phone: FaPhone,
-  mapMarker: FaMapMarkerAlt,
-  home: FaHome,
-  spa: FaSpa,
-  whatsapp: FaWhatsapp,
-  calendar: FaCalendarAlt,
-  checkCircle: FaCheckCircle,
-  waves: LuWaves,
-  flower: LuFlower2,
-  sparkles: LuSparkles,
-  star: LuStar,
-};
-
-/**
- * Returns the React Icon component for a given icon key.
- * Falls back to FaSpa if key not found.
- */
-export function getIcon(key: string): IconType {
-  return iconMap[key] || FaSpa;
 }
 
 // ============================================================
@@ -143,7 +62,7 @@ export const services: Service[] = [
     price: 220,
     description:
       "جلسة مساج مريحة تهدف إلى تخفيف التوتر والإجهاد، باستخدام زيوت عطرية طبيعية وحركات ناعمة لإعادة التوازن للجسم والعقل.",
-    iconKey: "leaf",
+    icon: "🌿",
   },
   {
     id: "thai-massage",
@@ -152,7 +71,7 @@ export const services: Service[] = [
     price: 300,
     description:
       "تقنية تايلندية أصيلة تجمع بين الضغط والتمدد لتحسين المرونة وتنشيط الدورة الدموية وتخفيف آلام العضلات.",
-    iconKey: "prayer",
+    icon: "🧘",
   },
   {
     id: "hot-stone-massage",
@@ -161,7 +80,7 @@ export const services: Service[] = [
     price: 350,
     description:
       "تدليك فاخر باستخدام أحجار البازلت الساخنة لتخفيف التوتر العضلي العميق وتحسين تدفق الطاقة في الجسم.",
-    iconKey: "stone",
+    icon: "🪨",
   },
   {
     id: "cupping-massage",
@@ -170,7 +89,7 @@ export const services: Service[] = [
     price: 250,
     description:
       "علاج بالحجامة لتخفيف آلام العضلات وتحسين الدورة الدموية وإزالة السموم من الجسم بأسلوب آمن وفعال.",
-    iconKey: "flask",
+    icon: "🫙",
   },
   {
     id: "head-neck-massage",
@@ -179,7 +98,7 @@ export const services: Service[] = [
     price: 180,
     description:
       "تدليك مكثف لمنطقة الرأس والرقبة والأكتاف لتخفيف الصداع والتوتر الناتج عن الجلوس الطويل والعمل المكتبي.",
-    iconKey: "headMassage",
+    icon: "💆",
   },
   {
     id: "pregnancy-massage",
@@ -188,7 +107,7 @@ export const services: Service[] = [
     price: 270,
     description:
       "مساج لطيف وآمن للحوامل يساعد على تخفيف آلام الظهر وتحسين النوم وتقليل التورم في القدمين.",
-    iconKey: "pregnancy",
+    icon: "🤰",
   },
   {
     id: "postnatal-massage",
@@ -197,7 +116,7 @@ export const services: Service[] = [
     price: 280,
     description:
       "جلسة عناية مخصصة لفترة النفاس تساعد على استعادة الجسم لحيويته وتخفيف التوتر بعد الولادة.",
-    iconKey: "postnatal",
+    icon: "👶",
   },
   {
     id: "foot-massage",
@@ -206,7 +125,7 @@ export const services: Service[] = [
     price: 180,
     description:
       "تدليك متخصص للأرجل والقدمين لتخفيف التعب وتحسين الدورة الدموية بعد يوم طويل من الوقوف أو المشي.",
-    iconKey: "footMassage",
+    icon: "🦶",
   },
   {
     id: "manicure",
@@ -215,7 +134,7 @@ export const services: Service[] = [
     price: 100,
     description:
       "عناية كاملة بالأظافر وتشذيبها وتلميعها مع ترطيب اليدين لتحصلي على أظافر جميلة ومشرقة.",
-    iconKey: "manicure",
+    icon: "💅",
   },
   {
     id: "pedicure",
@@ -224,7 +143,7 @@ export const services: Service[] = [
     price: 120,
     description:
       "عناية شاملة بالقدمين والأظافر مع تقشير وترطيب لإعادة النعومة والجمال لقدميك.",
-    iconKey: "pedicure",
+    icon: "🦶",
   },
 ];
 
@@ -245,7 +164,7 @@ export const subscriptions: SubscriptionPackage[] = [
     ],
     savings: 181,
     color: "silver",
-    iconKey: "silverMedal",
+    icon: "🥈",
   },
   {
     id: "gold",
@@ -255,12 +174,12 @@ export const subscriptions: SubscriptionPackage[] = [
     features: [
       "٨ جلسات مساج شهرياً",
       "أولوية مضاعفة في الحجز",
-      "خصم ١٠٪ على الخدمات الإضافة",
+      "خصم ١٠٪ على الخدمات الإضافية",
     ],
     savings: 461,
     popular: true,
     color: "gold",
-    iconKey: "goldMedal",
+    icon: "🥇",
   },
   {
     id: "platinum",
@@ -275,7 +194,7 @@ export const subscriptions: SubscriptionPackage[] = [
     ],
     savings: 841,
     color: "platinum",
-    iconKey: "diamond",
+    icon: "💎",
   },
 ];
 

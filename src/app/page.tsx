@@ -1,21 +1,21 @@
 import Link from "next/link";
-import { services, subscriptions, formatPrice, getIcon } from "@/data/services";
+import { services, subscriptions, formatPrice } from "@/data/services";
 import { BookButton } from "@/components/BookButton";
 import { FaSpa } from "react-icons/fa";
 
 const features = [
   {
-    iconKey: "home",
+    icon: "🏠",
     title: "خدمة منزلية خاصة",
     description: "نصل إليك أينما كنت في منزلك لتستمتعي بتجربة سبا فاخرة دون عناء الخروج.",
   },
   {
-    iconKey: "sparkles",
+    icon: "✨",
     title: "معالجات محترفات",
     description: "فريق من المعالجات المحترفات والمدربات على أحدث تقنيات المساج والعناية النسائية.",
   },
   {
-    iconKey: "calendar",
+    icon: "📅",
     title: "حجز سهل وسريع",
     description: "احجزي موعدك في دقائق عبر واتساب، واختاري الوقت والمكان المناسب لك.",
   },
@@ -99,7 +99,7 @@ export default function HomePage() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {featuredServices.map((service, idx) => {
-            const Icon = getIcon(service.iconKey);
+            // icon in template;
             return (
               <div
                 key={service.id}
@@ -107,7 +107,7 @@ export default function HomePage() {
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-pale text-accent ring-1 ring-accent/20">
-                  <Icon className="h-6 w-6" />
+                  <span className="h-6 w-6">{service.icon}</span>
                 </div>
                 <h3 className="mb-1.5 text-lg font-bold text-text">{service.name}</h3>
                 <p className="mb-1 text-sm text-text-muted">{service.duration}</p>
@@ -145,15 +145,14 @@ export default function HomePage() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feat, idx) => {
-              const Icon = getIcon(feat.iconKey);
-              return (
+                            return (
                 <div
                   key={feat.title}
                   className="card flex flex-col items-center p-8 text-center animate-fade-in-up"
                   style={{ animationDelay: `${idx * 0.15}s` }}
                 >
                   <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-pale text-accent ring-1 ring-accent/15">
-                    <Icon className="h-7 w-7" />
+                    <span className="h-7 w-7">{feat.icon}</span>
                   </div>
                   <h3 className="mb-3 text-xl font-bold text-text">{feat.title}</h3>
                   <p className="text-text-muted leading-relaxed">{feat.description}</p>
@@ -181,8 +180,7 @@ export default function HomePage() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {subscriptions.map((pkg, idx) => {
             const isPopular = pkg.popular;
-            const Icon = getIcon(pkg.iconKey);
-            return (
+                        return (
               <div
                 key={pkg.id}
                 className={`card relative flex flex-col p-8 animate-fade-in-up ${
@@ -204,7 +202,7 @@ export default function HomePage() {
                     pkg.color === "gold" ? "bg-accent-pale text-accent" :
                     "bg-text-muted/15 text-text-muted"
                   }`}>
-                    <Icon className="h-6 w-6" />
+                    <span className="h-6 w-6">{pkg.icon}</span>
                   </div>
                 </div>
                 <h3 className="mb-1 text-center text-xl font-bold text-text">{pkg.name}</h3>
@@ -217,10 +215,9 @@ export default function HomePage() {
 
                 <ul className="mb-5 flex-1 space-y-3">
                   {pkg.features.map((feat) => {
-                    const CheckIcon = getIcon("checkCircle");
-                    return (
+                                        return (
                       <li key={feat} className="flex items-start gap-2.5 text-sm text-text-muted">
-                        <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                        <span className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent">✅</span>
                         {feat}
                       </li>
                     );
