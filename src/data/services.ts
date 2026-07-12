@@ -1,6 +1,6 @@
 /**
  * ملف البيانات المركزي لموقع Home Spa
- * سبا نسائي فاخر — Rose Gold + Blush Pink palette
+ * سبا نسائي فاخر — Muted Dusty palette
  * React Icons replacing all emoji
  * Target: المرأة السعودية — تجربة سبا منزلي أنثوية راقية
  */

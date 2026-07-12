@@ -9,20 +9,20 @@ export function Header() {
   const SpaIcon = getIcon("spa");
 
   return (
-    <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-blush-light" role="banner">
+    <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-soft" role="banner">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-deep-rose no-underline hover:opacity-85 transition-opacity"
+          className="flex items-center gap-2.5 text-text no-underline hover:opacity-85 transition-opacity"
           aria-label="الذهاب إلى الصفحة الرئيسية"
         >
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-rose-pale ring-1 ring-rose/20">
-            <SpaIcon className="h-5 w-5 text-rose" />
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-pale ring-1 ring-accent/20">
+            <SpaIcon className="h-5 w-5 text-accent" />
           </span>
           <span className="text-xl font-bold tracking-tight">
-            <span className="text-rose">Home</span>{" "}
-            <span className="text-deep-rose">Spa</span>
+            <span className="text-accent">Home</span>{" "}
+            <span className="text-text">Spa</span>
           </span>
         </Link>
 
@@ -32,7 +32,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-muted-rose no-underline transition-colors hover:bg-rose-pale hover:text-rose"
+              className="rounded-lg px-4 py-2 text-sm font-medium text-text-muted no-underline transition-colors hover:bg-accent-pale hover:text-accent"
             >
               {link.label}
             </Link>
@@ -54,7 +54,7 @@ export function Header() {
         {/* Mobile menu toggle */}
         <button
           type="button"
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-deep-rose hover:bg-rose-pale transition-colors"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-text hover:bg-accent-pale transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
@@ -79,7 +79,7 @@ export function Header() {
       <div
         id="mobile-menu"
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? "max-h-96 border-t border-blush-light" : "max-h-0"
+          menuOpen ? "max-h-96 border-t border-soft" : "max-h-0"
         }`}
       >
         <nav className="flex flex-col px-4 py-4 gap-1 bg-white" aria-label="التنقل في الجوال">
@@ -87,7 +87,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-4 py-3 text-base font-medium text-deep-rose no-underline transition-colors hover:bg-rose-pale"
+              className="rounded-lg px-4 py-3 text-base font-medium text-text no-underline transition-colors hover:bg-accent-pale"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}

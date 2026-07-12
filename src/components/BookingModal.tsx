@@ -56,14 +56,14 @@ export function BookingModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-deep-rose/50 p-4 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-dark-deep/50 p-4 backdrop-blur-sm animate-fade-in"
       onClick={handleBackdropClick}
     >
       <div
         className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl animate-scale-in overflow-hidden"
         dir="rtl"
       >
-        {/* Modal header — rose gradient */}
+        {/* Modal header — dusty rose gradient */}
         <div className="bg-spa-dark px-6 py-5 text-white">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold">
@@ -79,13 +79,13 @@ export function BookingModal({
               </svg>
             </button>
           </div>
-          <p className="mt-1 text-sm text-blush-light">{serviceName}</p>
+          <p className="mt-1 text-sm text-accent-light">{serviceName}</p>
         </div>
 
         {/* Booking form */}
         <form onSubmit={handleSubmit} className="px-6 py-6 space-y-5">
           <div>
-            <label htmlFor="booking-date" className="mb-1.5 block text-sm font-semibold text-deep-rose">
+            <label htmlFor="booking-date" className="mb-1.5 block text-sm font-semibold text-text">
               التاريخ المطلوب
             </label>
             <input
@@ -95,12 +95,12 @@ export function BookingModal({
               onChange={(e) => setDate(e.target.value)}
               min={today}
               required
-              className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose placeholder:text-muted-rose/50 transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20"
+              className="w-full rounded-xl border border-soft bg-bg px-4 py-3 text-sm text-text placeholder:text-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
             />
           </div>
 
           <div>
-            <label htmlFor="booking-time" className="mb-1.5 block text-sm font-semibold text-deep-rose">
+            <label htmlFor="booking-time" className="mb-1.5 block text-sm font-semibold text-text">
               الوقت المناسب
             </label>
             <select
@@ -108,7 +108,7 @@ export function BookingModal({
               value={time}
               onChange={(e) => setTime(e.target.value)}
               required
-              className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20"
+              className="w-full rounded-xl border border-soft bg-bg px-4 py-3 text-sm text-text transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
             >
               <option value="" disabled>اختاري الوقت المناسب</option>
               <option value="9:00 صباحاً">9:00 صباحاً</option>
@@ -128,15 +128,15 @@ export function BookingModal({
           </div>
 
           <div>
-            <label htmlFor="booking-notes" className="mb-1.5 block text-sm font-semibold text-deep-rose">
-              ملاحظات إضافية <span className="font-normal text-muted-rose">(اختياري)</span>
+            <label htmlFor="booking-notes" className="mb-1.5 block text-sm font-semibold text-text">
+              ملاحظات إضافية <span className="font-normal text-text-muted">(اختياري)</span>
             </label>
             <textarea
               id="booking-notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
-              className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose placeholder:text-muted-rose/50 transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20 resize-none"
+              className="w-full rounded-xl border border-soft bg-bg px-4 py-3 text-sm text-text placeholder:text-text-muted/50 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 resize-none"
               placeholder="أي تفاصيل إضافية تودين ذكرها..."
             />
           </div>
@@ -145,13 +145,13 @@ export function BookingModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-xl border border-muted-light px-4 py-3 text-sm font-semibold text-muted-rose transition-colors hover:bg-rose-pale hover:text-rose"
+              className="flex-1 rounded-xl border border-soft px-4 py-3 text-sm font-semibold text-text-muted transition-colors hover:bg-accent-pale hover:text-accent"
             >
               إلغاء
             </button>
             <button
               type="submit"
-              className="flex-[2] rounded-xl bg-rose px-6 py-3 text-sm font-bold text-white shadow-lg shadow-rose/20 transition-all hover:bg-rose-dark hover:shadow-xl hover:shadow-rose/30 flex items-center justify-center gap-2"
+              className="flex-[2] rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white shadow-lg shadow-accent/15 transition-all hover:bg-accent-deep hover:shadow-xl hover:shadow-accent/20 flex items-center justify-center gap-2"
             >
               <FaWhatsapp className="h-5 w-5" />
               إرسال عبر واتساب

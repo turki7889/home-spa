@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#B76E79",
+  themeColor: "#BB9C9A",
 };
 
 export default function RootLayout({
@@ -47,11 +47,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="flex min-h-full flex-col bg-bg text-deep-rose font-sans">
+      <body className="flex min-h-full flex-col bg-bg text-text font-sans">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
