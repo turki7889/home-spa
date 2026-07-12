@@ -1,5 +1,6 @@
 "use client";
 
+import { BookButton } from "@/components/BookButton";
 import { useState } from "react";
 import { whatsappLink } from "@/data/services";
 import type { Metadata } from "next";
@@ -67,14 +68,11 @@ export default function ContactPage() {
                 <p className="mb-4 text-lg font-bold text-dark" dir="ltr">
                   +966 54 998 6148
                 </p>
-                <a
-                  href={whatsappLink("مرحباً، أود حجز موعد في Home Spa")}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <BookButton
+                  serviceName="موعد في Home Spa"
+                  label="افتح المحادثة في واتساب"
                   className="btn-primary w-full text-center"
-                >
-                  افتح المحادثة في واتساب
-                </a>
+                />
               </div>
             </div>
 
@@ -241,14 +239,11 @@ export default function ContactPage() {
             نغطي الرياض وجميع المدن الكبرى في المملكة العربية السعودية.
             أينما كنت، فريقنا جاهز للوصول إليك.
           </p>
-          <a
-            href={whatsappLink("مرحباً، هل تغطون منطقتي؟")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <BookButton
+            serviceName="الاستفسار عن مناطق الخدمة"
+            label="استفسر عن منطقتك"
             className="btn-primary inline-flex"
-          >
-            استفسر عن منطقتك
-          </a>
+          />
         </div>
       </section>
     </div>

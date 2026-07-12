@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { services, subscriptions, formatPrice, whatsappLink } from "@/data/services";
+import { services, subscriptions, formatPrice } from "@/data/services";
+import { BookButton } from "@/components/BookButton";
 
 /**
  * الصفحة الرئيسية — Landing Page
@@ -59,14 +60,11 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <a
-                href={whatsappLink("مرحباً، أود حجز موعد في Home Spa")}
-                target="_blank"
-                rel="noopener noreferrer"
+              <BookButton
+                serviceName="موعد في Home Spa"
+                label="احجز الآن"
                 className="btn-primary text-base sm:text-lg px-8 py-3"
-              >
-                احجز الآن
-              </a>
+              />
               <Link
                 href="/services"
                 className="btn-outline border-white/30 text-white hover:border-primary hover:bg-primary hover:text-white text-base sm:text-lg px-8 py-3"
@@ -114,14 +112,11 @@ export default function HomePage() {
               <p className="mb-1 text-sm text-dark-muted">{service.duration}</p>
               <p className="mb-4 font-bold text-primary">{formatPrice(service.price)}</p>
               <div className="mt-auto">
-                <a
-                  href={whatsappLink(`مرحباً، أود حجز ${service.name}`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <BookButton
+                  serviceName={service.name}
+                  label="احجز الآن"
                   className="btn-primary w-full text-sm"
-                >
-                  احجز الآن
-                </a>
+                />
               </div>
             </div>
           ))}
@@ -232,16 +227,12 @@ export default function HomePage() {
                   توفير {pkg.savings.toLocaleString("ar-SA")} ر.س
                 </p>
 
-                <a
-                  href={whatsappLink(`مرحباً، أرغب في الاشتراك في ${pkg.name} من Home Spa`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`btn-primary w-full text-sm ${
-                    isPopular ? "from-primary to-primary-dark" : ""
-                  }`}
-                >
-                  اشترك الآن
-                </a>
+                <BookButton
+                  serviceName={pkg.name}
+                  label="اشترك الآن"
+                  type="subscription"
+                  className={`btn-primary w-full text-sm ${isPopular ? "from-primary to-primary-dark" : ""}`}
+                />
               </div>
             );
           })}
@@ -270,14 +261,11 @@ export default function HomePage() {
           <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-secondary sm:text-xl">
             لا تتردد في التواصل معنا. احجز جلستك الأولى اليوم واستمتع بأفضل تجربة سبا منزلي في المملكة.
           </p>
-          <a
-            href={whatsappLink("مرحباً، أود حجز موعد في Home Spa")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <BookButton
+            serviceName="موعد في Home Spa"
+            label="احجز جلستك الآن"
             className="btn-primary inline-flex text-lg px-10 py-4"
-          >
-            احجز جلستك الآن
-          </a>
+          />
         </div>
       </section>
     </div>

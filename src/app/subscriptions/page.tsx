@@ -1,4 +1,5 @@
-import { subscriptions, whatsappLink } from "@/data/services";
+import { subscriptions } from "@/data/services";
+import { BookButton } from "@/components/BookButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -134,18 +135,12 @@ export default function SubscriptionsPage() {
                   </div>
 
                   {/* زر الاشتراك */}
-                  <a
-                    href={whatsappLink(
-                      `مرحباً، أرغب في الاشتراك في ${pkg.name} من Home Spa`
-                    )}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`btn-primary w-full text-center text-base ${
-                      isPopular ? "py-4 text-lg" : ""
-                    }`}
-                  >
-                    اشترك الآن
-                  </a>
+                  <BookButton
+                    serviceName={pkg.name}
+                    label="اشترك الآن"
+                    type="subscription"
+                    className={`btn-primary w-full text-center text-base ${isPopular ? "py-4 text-lg" : ""}`}
+                  />
                 </div>
               </div>
             );
@@ -270,14 +265,12 @@ export default function SubscriptionsPage() {
             فريقنا جاهز للإجابة على جميع استفساراتك ومساعدتك في اختيار الباقة الأنسب لك.
             تواصل معنا الآن على واتساب.
           </p>
-          <a
-            href={whatsappLink("مرحباً، لدي سؤال حول باقات Home Spa")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <BookButton
+            serviceName="باقات Home Spa"
+            label="تواصل معنا الآن"
+            type="subscription"
             className="btn-primary inline-flex text-lg px-10 py-4"
-          >
-            تواصل معنا الآن
-          </a>
+          />
         </div>
       </section>
     </div>

@@ -1,4 +1,5 @@
-import { services, formatPrice, whatsappLink } from "@/data/services";
+import { services, formatPrice } from "@/data/services";
+import { BookButton } from "@/components/BookButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -75,14 +76,11 @@ export default function ServicesPage() {
               )}
 
               {/* زر الحجز */}
-              <a
-                href={whatsappLink(`مرحباً، أود حجز ${service.name} من Home Spa`)}
-                target="_blank"
-                rel="noopener noreferrer"
+              <BookButton
+                serviceName={service.name}
+                label="احجز الآن"
                 className="btn-primary mt-auto w-full text-sm"
-              >
-                احجز الآن
-              </a>
+              />
             </div>
           ))}
         </div>
@@ -118,14 +116,11 @@ export default function ServicesPage() {
                 اجمع بين العناية الكاملة باليدين والقدمين في جلسة واحدة واحصل على خصم خاص.
               </p>
 
-              <a
-                href={whatsappLink("مرحباً، أود حجز مانيكير + بديكير من Home Spa")}
-                target="_blank"
-                rel="noopener noreferrer"
+              <BookButton
+                serviceName="مانيكير + بديكير"
+                label="احجز الباقة المجمعة"
                 className="btn-primary w-full"
-              >
-                احجز الباقة المجمعة
-              </a>
+              />
             </div>
           </div>
         </div>
