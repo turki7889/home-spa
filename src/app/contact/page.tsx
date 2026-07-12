@@ -31,9 +31,9 @@ export default function ContactPage() {
           <h1 className="mb-4 text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
             يسعدنا تواصلك معنا
           </h1>
-          <div className="divider-gold mx-auto" />
-          <p className="mx-auto mt-5 max-w-xl leading-relaxed text-bone">
-            نحن هنا لخدمتك. تواصل معنا عبر واتساب أو املأ النموذج أدناه وسنعود إليك في أقرب وقت.
+          <div className="divider-rose mx-auto" />
+          <p className="mx-auto mt-5 max-w-xl leading-relaxed text-blush-light">
+            نحن هنا لخدمتك. تواصلي معنا عبر واتساب أو املئي النموذج أدناه وسنعود إليك في أقرب وقت.
           </p>
         </div>
       </section>
@@ -44,24 +44,24 @@ export default function ContactPage() {
           {/* Left: Contact info */}
           <div className="space-y-6">
             {/* WhatsApp card */}
-            <div className="card overflow-hidden border-2 border-[#25D366]/20">
-              <div className="bg-[#25D366] px-6 py-5 text-white">
+            <div className="card overflow-hidden border-2 border-rose/20">
+              <div className="bg-rose px-6 py-5 text-white">
                 <div className="flex items-center gap-3">
                   <WhatsIcon className="h-8 w-8" />
                   <div>
-                    <h3 className="text-lg font-bold">تواصل عبر واتساب</h3>
+                    <h3 className="text-lg font-bold">تواصلي عبر واتساب</h3>
                     <p className="text-sm text-white/80">الطريقة الأسرع للحجز والاستفسار</p>
                   </div>
                 </div>
               </div>
               <div className="p-6">
-                <p className="mb-2 text-sm text-muted">رقم الواتساب:</p>
-                <p className="mb-4 text-lg font-bold text-espresso" dir="ltr">
+                <p className="mb-2 text-sm text-muted-rose">رقم الواتساب:</p>
+                <p className="mb-4 text-lg font-bold text-deep-rose" dir="ltr">
                   +966 54 998 6148
                 </p>
                 <BookButton
                   serviceName="موعد في Home Spa"
-                  label="افتح المحادثة في واتساب"
+                  label="افتحي المحادثة في واتساب"
                   className="btn-primary w-full text-center"
                 />
               </div>
@@ -69,27 +69,27 @@ export default function ContactPage() {
 
             {/* Info card */}
             <div className="card p-6">
-              <h3 className="mb-5 text-lg font-bold text-espresso">معلومات التواصل</h3>
+              <h3 className="mb-5 text-lg font-bold text-deep-rose">معلومات التواصل</h3>
               <ul className="space-y-5">
                 <li className="flex items-start gap-3">
-                  <ClockIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                  <ClockIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-rose" />
                   <div>
-                    <p className="text-sm font-bold text-espresso">ساعات العمل</p>
-                    <p className="text-sm text-muted">يومياً من 9 صباحاً حتى 10 مساءً</p>
+                    <p className="text-sm font-bold text-deep-rose">ساعات العمل</p>
+                    <p className="text-sm text-muted-rose">يومياً من 9 صباحاً حتى 10 مساءً</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <MapIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                  <MapIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-rose" />
                   <div>
-                    <p className="text-sm font-bold text-espresso">منطقة الخدمة</p>
-                    <p className="text-sm text-muted">الرياض وجميع المدن الكبرى في المملكة</p>
+                    <p className="text-sm font-bold text-deep-rose">منطقة الخدمة</p>
+                    <p className="text-sm text-muted-rose">الرياض وجميع المدن الكبرى في المملكة</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <PhoneIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                  <PhoneIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-rose" />
                   <div>
-                    <p className="text-sm font-bold text-espresso">رقم الجوال</p>
-                    <p className="text-sm text-muted" dir="ltr">+966 54 998 6148</p>
+                    <p className="text-sm font-bold text-deep-rose">رقم الجوال</p>
+                    <p className="text-sm text-muted-rose" dir="ltr">+966 54 998 6148</p>
                   </div>
                 </li>
               </ul>
@@ -99,15 +99,15 @@ export default function ContactPage() {
           {/* Right: Contact form */}
           <div className="card p-6 sm:p-8">
             <div className="mb-6">
-              <h3 className="mb-2 text-xl font-bold text-espresso">أرسل لنا رسالة</h3>
-              <p className="text-sm text-muted">
-                املأ النموذج أدناه وسيتم فتح محادثة واتساب مع تفاصيل رسالتك.
+              <h3 className="mb-2 text-xl font-bold text-deep-rose">أرسلي لنا رسالة</h3>
+              <p className="text-sm text-muted-rose">
+                املئي النموذج أدناه وسيتم فتح محادثة واتساب مع تفاصيل رسالتك.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5" noValidate>
               <div>
-                <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium text-espresso">
+                <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium text-deep-rose">
                   الاسم الكامل
                 </label>
                 <input
@@ -116,13 +116,13 @@ export default function ContactPage() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full rounded-xl border border-bone-dark bg-offwhite px-4 py-3 text-sm text-espresso placeholder:text-muted-light/50 transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20"
-                  placeholder="أدخل اسمك الكامل"
+                  className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose placeholder:text-muted-rose/50 transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20"
+                  placeholder="أدخلي اسمك الكامل"
                 />
               </div>
 
               <div>
-                <label htmlFor="contact-phone" className="mb-1.5 block text-sm font-medium text-espresso">
+                <label htmlFor="contact-phone" className="mb-1.5 block text-sm font-medium text-deep-rose">
                   رقم الجوال
                 </label>
                 <input
@@ -131,14 +131,14 @@ export default function ContactPage() {
                   required
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full rounded-xl border border-bone-dark bg-offwhite px-4 py-3 text-sm text-espresso placeholder:text-muted-light/50 transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20"
+                  className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose placeholder:text-muted-rose/50 transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20"
                   placeholder="05xxxxxxxx"
                   dir="ltr"
                 />
               </div>
 
               <div>
-                <label htmlFor="contact-message" className="mb-1.5 block text-sm font-medium text-espresso">
+                <label htmlFor="contact-message" className="mb-1.5 block text-sm font-medium text-deep-rose">
                   الرسالة
                 </label>
                 <textarea
@@ -147,16 +147,16 @@ export default function ContactPage() {
                   rows={5}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full resize-none rounded-xl border border-bone-dark bg-offwhite px-4 py-3 text-sm text-espresso placeholder:text-muted-light/50 transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20"
-                  placeholder="اكتب رسالتك هنا..."
+                  className="w-full resize-none rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose placeholder:text-muted-rose/50 transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20"
+                  placeholder="اكتبي رسالتك هنا..."
                 />
               </div>
 
               <button type="submit" className="btn-primary w-full text-base">
-                أرسل عبر واتساب
+                أرسلي عبر واتساب
               </button>
 
-              <p className="text-center text-xs text-muted">
+              <p className="text-center text-xs text-muted-rose">
                 بالضغط على زر الإرسال، سيتم فتح تطبيق واتساب مع تفاصيل رسالتك.
               </p>
             </form>
@@ -167,19 +167,19 @@ export default function ContactPage() {
       {/* Service area section */}
       <section className="bg-spa-warm py-16 text-center">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald/10 text-emerald">
+          <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-pale text-rose">
             <HomeIcon className="h-7 w-7" />
           </div>
-          <h2 className="mb-4 text-2xl font-bold text-espresso sm:text-3xl">
+          <h2 className="mb-4 text-2xl font-bold text-deep-rose sm:text-3xl">
             نخدم جميع مناطق الرياض
           </h2>
-          <p className="mb-8 leading-relaxed text-muted">
+          <p className="mb-8 leading-relaxed text-muted-rose">
             نغطي الرياض وجميع المدن الكبرى في المملكة العربية السعودية.
-            أينما كنت، فريقنا جاهز للوصول إليك.
+            أينما كنتِ، فريقنا جاهز للوصول إليك.
           </p>
           <BookButton
             serviceName="الاستفسار عن مناطق الخدمة"
-            label="استفسر عن منطقتك"
+            label="استفسري عن منطقتك"
             className="btn-primary inline-flex"
           />
         </div>

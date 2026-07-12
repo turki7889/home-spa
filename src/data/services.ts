@@ -1,7 +1,8 @@
 /**
  * ملف البيانات المركزي لموقع Home Spa
- * Luxury spa — Forest Emerald + Burnished Gold palette
+ * سبا نسائي فاخر — Rose Gold + Blush Pink palette
  * React Icons replacing all emoji
+ * Target: المرأة السعودية — تجربة سبا منزلي أنثوية راقية
  */
 
 import type { IconType } from "react-icons";

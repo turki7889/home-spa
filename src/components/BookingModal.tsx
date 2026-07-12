@@ -35,7 +35,7 @@ export function BookingModal({
     if (time) lines.push(`الوقت: ${time}`);
     if (notes) lines.push(`ملاحظات: ${notes}`);
     lines.push("");
-    lines.push("شكراً لك - فريق Home Spa");
+    lines.push("شكراً لك — فريق Home Spa");
 
     const message = lines.join("%0A");
     const url = `${WHATSAPP_BASE_URL}?text=${message}`;
@@ -56,18 +56,18 @@ export function BookingModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-espresso/60 p-4 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-deep-rose/50 p-4 backdrop-blur-sm animate-fade-in"
       onClick={handleBackdropClick}
     >
       <div
         className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl animate-scale-in overflow-hidden"
         dir="rtl"
       >
-        {/* Modal header */}
+        {/* Modal header — rose gradient */}
         <div className="bg-spa-dark px-6 py-5 text-white">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold">
-              {type === "subscription" ? "اشترك في الباقة" : "احجز خدمتك"}
+              {type === "subscription" ? "اشتركي في الباقة" : "احجزي خدمتك"}
             </h3>
             <button
               onClick={onClose}
@@ -79,13 +79,13 @@ export function BookingModal({
               </svg>
             </button>
           </div>
-          <p className="mt-1 text-sm text-bone">{serviceName}</p>
+          <p className="mt-1 text-sm text-blush-light">{serviceName}</p>
         </div>
 
         {/* Booking form */}
         <form onSubmit={handleSubmit} className="px-6 py-6 space-y-5">
           <div>
-            <label htmlFor="booking-date" className="mb-1.5 block text-sm font-semibold text-espresso">
+            <label htmlFor="booking-date" className="mb-1.5 block text-sm font-semibold text-deep-rose">
               التاريخ المطلوب
             </label>
             <input
@@ -95,12 +95,12 @@ export function BookingModal({
               onChange={(e) => setDate(e.target.value)}
               min={today}
               required
-              className="w-full rounded-xl border border-bone-dark bg-offwhite px-4 py-3 text-sm text-espresso placeholder:text-muted-light/50 transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20"
+              className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose placeholder:text-muted-rose/50 transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20"
             />
           </div>
 
           <div>
-            <label htmlFor="booking-time" className="mb-1.5 block text-sm font-semibold text-espresso">
+            <label htmlFor="booking-time" className="mb-1.5 block text-sm font-semibold text-deep-rose">
               الوقت المناسب
             </label>
             <select
@@ -108,9 +108,9 @@ export function BookingModal({
               value={time}
               onChange={(e) => setTime(e.target.value)}
               required
-              className="w-full rounded-xl border border-bone-dark bg-offwhite px-4 py-3 text-sm text-espresso transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20"
+              className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20"
             >
-              <option value="" disabled>اختر الوقت المناسب</option>
+              <option value="" disabled>اختاري الوقت المناسب</option>
               <option value="9:00 صباحاً">9:00 صباحاً</option>
               <option value="10:00 صباحاً">10:00 صباحاً</option>
               <option value="11:00 صباحاً">11:00 صباحاً</option>
@@ -128,16 +128,16 @@ export function BookingModal({
           </div>
 
           <div>
-            <label htmlFor="booking-notes" className="mb-1.5 block text-sm font-semibold text-espresso">
-              ملاحظات إضافية <span className="font-normal text-muted">(اختياري)</span>
+            <label htmlFor="booking-notes" className="mb-1.5 block text-sm font-semibold text-deep-rose">
+              ملاحظات إضافية <span className="font-normal text-muted-rose">(اختياري)</span>
             </label>
             <textarea
               id="booking-notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
-              className="w-full rounded-xl border border-bone-dark bg-offwhite px-4 py-3 text-sm text-espresso placeholder:text-muted-light/50 transition-colors focus:border-emerald focus:outline-none focus:ring-2 focus:ring-emerald/20 resize-none"
-              placeholder="أي تفاصيل إضافية تود ذكرها..."
+              className="w-full rounded-xl border border-muted-light bg-bg px-4 py-3 text-sm text-deep-rose placeholder:text-muted-rose/50 transition-colors focus:border-rose focus:outline-none focus:ring-2 focus:ring-rose/20 resize-none"
+              placeholder="أي تفاصيل إضافية تودين ذكرها..."
             />
           </div>
 
@@ -145,13 +145,13 @@ export function BookingModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-xl border border-bone-dark px-4 py-3 text-sm font-semibold text-muted transition-colors hover:bg-bone hover:text-espresso"
+              className="flex-1 rounded-xl border border-muted-light px-4 py-3 text-sm font-semibold text-muted-rose transition-colors hover:bg-rose-pale hover:text-rose"
             >
               إلغاء
             </button>
             <button
               type="submit"
-              className="flex-[2] rounded-xl bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-green-200 transition-all hover:bg-[#20BD5A] hover:shadow-xl hover:shadow-green-300 flex items-center justify-center gap-2"
+              className="flex-[2] rounded-xl bg-rose px-6 py-3 text-sm font-bold text-white shadow-lg shadow-rose/20 transition-all hover:bg-rose-dark hover:shadow-xl hover:shadow-rose/30 flex items-center justify-center gap-2"
             >
               <FaWhatsapp className="h-5 w-5" />
               إرسال عبر واتساب

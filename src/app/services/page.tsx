@@ -3,9 +3,9 @@ import { BookButton } from "@/components/BookButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "خدماتنا — Home Spa | سبا منزلي فاخر",
+  title: "خدماتنا — Home Spa | سبا منزلي فاخر للمرأة",
   description:
-    "اكتشف جميع خدمات Home Spa: مساج استرخائي، مساج تايلندي، أحجار ساخنة، كاسات الهواء، عناية الأظافر، والمزيد. احجز جلستك الآن.",
+    "اكتشفي جميع خدمات Home Spa: مساج استرخائي، مساج تايلندي، أحجار ساخنة، كاسات الهواء، عناية الأظافر، والمزيد. احجزي جلستك الآن.",
 };
 
 export default function ServicesPage() {
@@ -14,21 +14,21 @@ export default function ServicesPage() {
 
   return (
     <div>
-      {/* Page header — minimal dark banner */}
+      {/* Page header — deep rose banner */}
       <section className="bg-spa-dark py-16 text-center text-white sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h1 className="mb-4 text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
             خدمات سبا منزلي متكاملة
           </h1>
-          <div className="divider-gold mx-auto" />
-          <p className="mx-auto mt-5 max-w-xl leading-relaxed text-bone">
-            اختر من بين مجموعة واسعة من خدمات المساج والعناية الشخصية. جميع الخدمات تقدم في منزلك
+          <div className="divider-rose mx-auto" />
+          <p className="mx-auto mt-5 max-w-xl leading-relaxed text-blush-light">
+            اختاري من بين مجموعة واسعة من خدمات المساج والعناية الشخصية. جميع الخدمات تقدم في منزلك
             براحة وخصوصية تامة على يد معالجات محترفات.
           </p>
         </div>
       </section>
 
-      {/* Services grid — 3-column */}
+      {/* Services grid — 3-column with rose accents */}
       <section className="section">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, idx) => {
@@ -40,30 +40,30 @@ export default function ServicesPage() {
                 className="card group flex flex-col p-6 animate-fade-in-up"
                 style={{ animationDelay: `${idx * 0.05}s` }}
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/8 text-emerald ring-1 ring-emerald/15">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-rose-pale text-rose ring-1 ring-rose/20">
                   <Icon className="h-6 w-6" />
                 </div>
 
-                <h3 className="mb-1 text-xl font-bold text-espresso">{service.name}</h3>
+                <h3 className="mb-1 text-xl font-bold text-deep-rose">{service.name}</h3>
 
-                <div className="mb-2 flex items-center gap-2 text-sm text-muted">
-                  <ClockIcon className="h-4 w-4 text-primary" />
+                <div className="mb-2 flex items-center gap-2 text-sm text-muted-rose">
+                  <ClockIcon className="h-4 w-4 text-rose" />
                   <span>{service.duration}</span>
                 </div>
 
-                <p className="mb-3 text-2xl font-extrabold text-primary">
+                <p className="mb-3 text-2xl font-extrabold text-rose">
                   {formatPrice(service.price)}
                 </p>
 
                 {service.description && (
-                  <p className="mb-5 flex-1 text-sm leading-relaxed text-muted">
+                  <p className="mb-5 flex-1 text-sm leading-relaxed text-muted-rose">
                     {service.description}
                   </p>
                 )}
 
                 <BookButton
                   serviceName={service.name}
-                  label="احجز الآن"
+                  label="احجزي الآن"
                   className="btn-primary mt-auto w-full text-sm"
                 />
               </div>
@@ -76,33 +76,33 @@ export default function ServicesPage() {
       <section className="bg-spa-warm">
         <div className="section">
           <div className="mx-auto max-w-md">
-            <div className="card group relative overflow-hidden border-2 border-emerald/20 p-8 text-center">
-              <span className="absolute -top-3 right-1/2 translate-x-1/2 rounded-full bg-emerald px-5 py-1.5 text-xs font-bold text-white shadow-md">
+            <div className="card group relative overflow-hidden border-2 border-rose/20 p-8 text-center">
+              <span className="absolute -top-3 right-1/2 translate-x-1/2 rounded-full bg-rose px-5 py-1.5 text-xs font-bold text-white shadow-md">
                 عرض خاص
               </span>
 
-              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald/10 text-emerald">
+              <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-pale text-rose">
                 {(() => { const I = getIcon("sparkles"); return <I className="h-7 w-7" />; })()}
               </div>
-              <h3 className="mb-2 text-2xl font-bold text-espresso">مانيكير + بديكير</h3>
-              <p className="mb-1 text-sm text-muted">المدة: 60 - 75 دقيقة</p>
+              <h3 className="mb-2 text-2xl font-bold text-deep-rose">مانيكير + بديكير</h3>
+              <p className="mb-1 text-sm text-muted-rose">المدة: 60 - 75 دقيقة</p>
 
               <div className="my-5">
-                <p className="text-3xl font-extrabold text-primary">
+                <p className="text-3xl font-extrabold text-rose">
                   {formatPrice(comboPrice)}
                 </p>
-                <p className="mt-1 text-sm font-medium text-emerald">
-                  وفر {formatPrice(comboSavings)}
+                <p className="mt-1 text-sm font-medium text-rose">
+                  وفري {formatPrice(comboSavings)}
                 </p>
               </div>
 
-              <p className="mb-6 text-sm leading-relaxed text-muted">
-                اجمع بين العناية الكاملة باليدين والقدمين في جلسة واحدة واحصل على خصم خاص.
+              <p className="mb-6 text-sm leading-relaxed text-muted-rose">
+                اجمعي بين العناية الكاملة باليدين والقدمين في جلسة واحدة واحصلي على خصم خاص.
               </p>
 
               <BookButton
                 serviceName="مانيكير + بديكير"
-                label="احجز الباقة المجمعة"
+                label="احجزي الباقة المجمعة"
                 className="btn-primary w-full"
               />
             </div>

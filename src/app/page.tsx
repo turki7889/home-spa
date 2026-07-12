@@ -7,17 +7,17 @@ const features = [
   {
     iconKey: "home",
     title: "خدمة منزلية خاصة",
-    description: "نصل إليك أينما كنت في منزلك لتستمتع بتجربة سبا فاخرة دون عناء الخروج.",
+    description: "نصل إليك أينما كنت في منزلك لتستمتعي بتجربة سبا فاخرة دون عناء الخروج.",
   },
   {
     iconKey: "sparkles",
     title: "معالجات محترفات",
-    description: "فريق من المعالجات المحترفات والمدربات على أحدث تقنيات المساج والعناية.",
+    description: "فريق من المعالجات المحترفات والمدربات على أحدث تقنيات المساج والعناية النسائية.",
   },
   {
     iconKey: "calendar",
     title: "حجز سهل وسريع",
-    description: "احجز موعدك في دقائق عبر واتساب، واختر الوقت والمكان المناسب لك.",
+    description: "احجزي موعدك في دقائق عبر واتساب، واختاري الوقت والمكان المناسب لك.",
   },
 ];
 
@@ -27,13 +27,14 @@ export default function HomePage() {
   return (
     <div>
       {/* ================================================================
-          Hero — Immersive dark section
+          Hero — Soft rose gradient, luxury women's spa feel
           ================================================================ */}
       <section className="relative overflow-hidden bg-spa-dark text-white">
-        {/* Ambient glow orbs */}
+        {/* Ambient glow orbs — warm rose + lavender */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-emerald/8 blur-[120px]" />
-          <div className="absolute -bottom-60 left-0 h-[28rem] w-[28rem] rounded-full bg-primary/10 blur-[100px]" />
+          <div className="absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-rose/15 blur-[120px]" />
+          <div className="absolute -bottom-60 left-0 h-[28rem] w-[28rem] rounded-full bg-lavender/12 blur-[100px]" />
+          <div className="absolute top-1/3 right-1/3 h-[16rem] w-[16rem] rounded-full bg-peach/10 blur-[80px]" />
         </div>
 
         {/* Subtle grain texture overlay */}
@@ -43,32 +44,32 @@ export default function HomePage() {
           <div className="mx-auto max-w-2xl text-center">
             {/* Brand mark */}
             <div className="mb-8 inline-flex items-center justify-center">
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/15 ring-1 ring-primary/20">
-                <FaSpa className="h-7 w-7 text-primary" />
+              <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-rose/20 ring-1 ring-rose/25">
+                <FaSpa className="h-7 w-7 text-rose-light" />
               </span>
             </div>
 
             <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              استرخِ في{" "}
-              <span className="text-primary-light">منزلك</span>
+              دللي نفسك في{" "}
+              <span className="text-rose-light">منزلك</span>
             </h1>
 
-            <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-bone sm:text-xl">
-              نقدم لك تجربة سبا فاخرة ومتكاملة في راحة منزلك. جلسات مساج احترافية،
-              عناية فائقة، وأجواء هادئة تصل إليك أينما كنت.
+            <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-blush-light sm:text-xl">
+              نقدم لك تجربة سبا أنثوية فاخرة ومتكاملة في راحة منزلك. جلسات مساج احترافية،
+              عناية فائقة، وأجواء هادئة تصل إليك أينما كنتِ.
             </p>
 
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <BookButton
                 serviceName="موعد في Home Spa"
-                label="احجز الآن"
+                label="احجزي الآن"
                 className="btn-primary text-base sm:text-lg px-8 py-3.5"
               />
               <Link
                 href="/services"
-                className="btn-outline border-white/20 text-bone hover:border-primary hover:bg-primary/10 hover:text-white text-base sm:text-lg px-8 py-3.5"
+                className="btn-outline border-white/20 text-blush-light hover:border-rose hover:bg-rose/15 hover:text-white text-base sm:text-lg px-8 py-3.5"
               >
-                استكشف خدماتنا
+                استكشفي خدماتنا
               </Link>
             </div>
           </div>
@@ -76,22 +77,22 @@ export default function HomePage() {
 
         {/* Bottom wave transition */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 50" fill="none" className="h-auto w-full text-offwhite" preserveAspectRatio="none">
+          <svg viewBox="0 0 1440 50" fill="none" className="h-auto w-full text-bg" preserveAspectRatio="none">
             <path d="M0 25C240 0 480 50 720 25S1200 0 1440 25V50H0V25Z" fill="currentColor" />
           </svg>
         </div>
       </section>
 
       {/* ================================================================
-          Featured Services — 2×2 asymmetric grid
+          Featured Services — 2×2 grid with rose accents
           ================================================================ */}
       <section className="section">
         <div className="mb-14 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-espresso sm:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-deep-rose sm:text-4xl">
             خدمات سبا منزلي مميزة
           </h2>
-          <div className="divider-gold mx-auto" />
-          <p className="mx-auto mt-5 max-w-lg text-muted">
+          <div className="divider-rose mx-auto" />
+          <p className="mx-auto mt-5 max-w-lg text-muted-rose">
             مجموعة متنوعة من جلسات المساج والعناية الشخصية التي تلبي جميع احتياجاتك في منزلك.
           </p>
         </div>
@@ -105,16 +106,16 @@ export default function HomePage() {
                 className="card group flex flex-col p-6 animate-fade-in-up"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald/8 text-emerald ring-1 ring-emerald/15">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-rose-pale text-rose ring-1 ring-rose/20">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-1.5 text-lg font-bold text-espresso">{service.name}</h3>
-                <p className="mb-1 text-sm text-muted">{service.duration}</p>
-                <p className="mb-4 font-bold text-primary">{formatPrice(service.price)}</p>
+                <h3 className="mb-1.5 text-lg font-bold text-deep-rose">{service.name}</h3>
+                <p className="mb-1 text-sm text-muted-rose">{service.duration}</p>
+                <p className="mb-4 font-bold text-rose">{formatPrice(service.price)}</p>
                 <div className="mt-auto">
                   <BookButton
                     serviceName={service.name}
-                    label="احجز الآن"
+                    label="احجزي الآن"
                     className="btn-primary w-full text-sm"
                   />
                 </div>
@@ -131,15 +132,15 @@ export default function HomePage() {
       </section>
 
       {/* ================================================================
-          Why Choose Us — 3-feature row with emerald accents
+          Why Choose Us — rose accent cards
           ================================================================ */}
       <section className="bg-spa-warm">
         <div className="section">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-espresso sm:text-4xl">
-              لماذا تختار Home Spa؟
+            <h2 className="mb-4 text-3xl font-bold text-deep-rose sm:text-4xl">
+              لماذا تختارين Home Spa؟
             </h2>
-            <div className="divider-gold mx-auto" />
+            <div className="divider-rose mx-auto" />
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -151,11 +152,11 @@ export default function HomePage() {
                   className="card flex flex-col items-center p-8 text-center animate-fade-in-up"
                   style={{ animationDelay: `${idx * 0.15}s` }}
                 >
-                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald/10 text-emerald ring-1 ring-emerald/10">
+                  <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-pale text-rose ring-1 ring-rose/15">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <h3 className="mb-3 text-xl font-bold text-espresso">{feat.title}</h3>
-                  <p className="text-muted leading-relaxed">{feat.description}</p>
+                  <h3 className="mb-3 text-xl font-bold text-deep-rose">{feat.title}</h3>
+                  <p className="text-muted-rose leading-relaxed">{feat.description}</p>
                 </div>
               );
             })}
@@ -164,16 +165,16 @@ export default function HomePage() {
       </section>
 
       {/* ================================================================
-          Subscriptions Preview — tiered pricing cards
+          Subscriptions Preview — feminine tiered cards
           ================================================================ */}
       <section className="section">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-espresso sm:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-deep-rose sm:text-4xl">
             باقات اشتراك شهرية مميزة
           </h2>
-          <div className="divider-gold mx-auto" />
-          <p className="mx-auto mt-5 max-w-lg text-muted">
-            اختر الباقة المناسبة لك واستمتع بجلسات منتظمة وأسعار مخفضة على مدار الشهر.
+          <div className="divider-rose mx-auto" />
+          <p className="mx-auto mt-5 max-w-lg text-muted-rose">
+            اختاري الباقة المناسبة لك واستمتعي بجلسات منتظمة وأسعار مخفضة على مدار الشهر.
           </p>
         </div>
 
@@ -186,53 +187,53 @@ export default function HomePage() {
                 key={pkg.id}
                 className={`card relative flex flex-col p-8 animate-fade-in-up ${
                   isPopular
-                    ? "ring-2 ring-emerald scale-[1.03] shadow-xl z-10"
+                    ? "ring-2 ring-rose scale-[1.03] shadow-xl z-10"
                     : ""
                 }`}
                 style={{ animationDelay: `${idx * 0.15}s` }}
               >
                 {isPopular && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-emerald px-5 py-1.5 text-xs font-bold text-white shadow-md">
-                    الأكثر شعبية
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-rose px-5 py-1.5 text-xs font-bold text-white shadow-md">
+                    الأكثر طلباً
                   </span>
                 )}
 
                 <div className="mb-3 text-center">
                   <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${
-                    pkg.color === "platinum" ? "bg-primary/15 text-primary" :
-                    pkg.color === "gold" ? "bg-emerald/15 text-emerald" :
-                    "bg-muted/20 text-muted"
+                    pkg.color === "platinum" ? "bg-rose-pale text-rose" :
+                    pkg.color === "gold" ? "bg-lavender-light text-lavender" :
+                    "bg-muted-rose/15 text-muted-rose"
                   }`}>
                     <Icon className="h-6 w-6" />
                   </div>
                 </div>
-                <h3 className="mb-1 text-center text-xl font-bold text-espresso">{pkg.name}</h3>
+                <h3 className="mb-1 text-center text-xl font-bold text-deep-rose">{pkg.name}</h3>
                 <p className="mb-4 text-center">
-                  <span className="text-3xl font-extrabold text-primary">
+                  <span className="text-3xl font-extrabold text-rose">
                     {pkg.monthlyPrice.toLocaleString("ar-SA")}
                   </span>
-                  <span className="text-sm text-muted"> ر.س/شهرياً</span>
+                  <span className="text-sm text-muted-rose"> ر.س/شهرياً</span>
                 </p>
 
                 <ul className="mb-5 flex-1 space-y-3">
                   {pkg.features.map((feat) => {
                     const CheckIcon = getIcon("checkCircle");
                     return (
-                      <li key={feat} className="flex items-start gap-2.5 text-sm text-muted">
-                        <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald" />
+                      <li key={feat} className="flex items-start gap-2.5 text-sm text-muted-rose">
+                        <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-rose" />
                         {feat}
                       </li>
                     );
                   })}
                 </ul>
 
-                <p className="mb-4 text-center text-sm font-medium text-emerald">
+                <p className="mb-4 text-center text-sm font-medium text-rose">
                   توفير {pkg.savings.toLocaleString("ar-SA")} ر.س
                 </p>
 
                 <BookButton
                   serviceName={pkg.name}
-                  label="اشترك الآن"
+                  label="اشتركي الآن"
                   type="subscription"
                   className="btn-primary w-full text-sm"
                 />
@@ -249,23 +250,24 @@ export default function HomePage() {
       </section>
 
       {/* ================================================================
-          Final CTA — dark section, single focus
+          Final CTA — rich rose section
           ================================================================ */}
       <section className="relative overflow-hidden bg-spa-dark text-white">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 -right-20 h-[24rem] w-[24rem] rounded-full bg-emerald/8 blur-[100px]" />
+          <div className="absolute -top-20 -right-20 h-[24rem] w-[24rem] rounded-full bg-rose/12 blur-[100px]" />
+          <div className="absolute -bottom-20 left-1/4 h-[18rem] w-[18rem] rounded-full bg-lavender/10 blur-[80px]" />
         </div>
 
         <div className="relative mx-auto max-w-2xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8 lg:py-32">
           <h2 className="mb-5 text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
-            جاهز لتجربة الاسترخاء؟
+            جاهزة لتجربة الاسترخاء؟
           </h2>
-          <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-bone sm:text-xl">
-            لا تتردد في التواصل معنا. احجز جلستك الأولى اليوم واستمتع بأفضل تجربة سبا منزلي في المملكة.
+          <p className="mx-auto mb-10 max-w-lg text-lg leading-relaxed text-blush-light sm:text-xl">
+            لا تترددي في التواصل معنا. احجزي جلستك الأولى اليوم واستمتعي بأفضل تجربة سبا منزلي في المملكة.
           </p>
           <BookButton
             serviceName="موعد في Home Spa"
-            label="احجز جلستك الآن"
+            label="احجزي جلستك الآن"
             className="btn-primary inline-flex text-lg px-10 py-4"
           />
         </div>
