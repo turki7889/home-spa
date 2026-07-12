@@ -1,23 +1,24 @@
 /**
  * ملف البيانات المركزي لموقع Home Spa
- * يحتوي على جميع الخدمات والباقات والبيانات المشتركة
+ * Luxury spa — Forest Emerald + Burnished Gold palette
+ * React Icons replacing all emoji
  */
+
+import type { IconType } from "react-icons";
 
 // ============================================================
 // أنواع البيانات
 // ============================================================
 
-/** خدمة سبا فردية */
 export interface Service {
   id: string;
   name: string;
   duration: string;
   price: number;
   description?: string;
-  icon?: string;
+  iconKey: string;
 }
 
-/** باقة اشتراك شهري */
 export interface SubscriptionPackage {
   id: string;
   name: string;
@@ -26,11 +27,10 @@ export interface SubscriptionPackage {
   features: string[];
   savings: number;
   popular?: boolean;
-  icon?: string;
+  iconKey: string;
   color: "silver" | "gold" | "platinum";
 }
 
-/** معلومات الاتصال */
 export interface ContactInfo {
   whatsappNumber: string;
   whatsappLink: string;
@@ -40,13 +40,90 @@ export interface ContactInfo {
 }
 
 // ============================================================
+// React Icons — centralized mapping
+// ============================================================
+
+import {
+  FaLeaf,
+  FaPray,
+  FaFlask,
+  FaUserCircle,
+  FaBaby,
+  FaBabyCarriage,
+  FaShoePrints,
+  FaHandSparkles,
+  FaMedal,
+  FaCrown,
+  FaGem,
+  FaWhatsapp,
+  FaPhone,
+  FaClock,
+  FaMapMarkerAlt,
+  FaHome,
+  FaSpa,
+  FaChevronDown,
+  FaEnvelope,
+  FaCalendarAlt,
+  FaCheckCircle,
+} from "react-icons/fa";
+
+import {
+  GiStoneBlock,
+  GiFootprint,
+  GiRosaShield,
+} from "react-icons/gi";
+
+import {
+  LuWaves,
+  LuFlower2,
+  LuSparkles,
+  LuStar,
+} from "react-icons/lu";
+
+const iconMap: Record<string, IconType> = {
+  leaf: FaLeaf,
+  prayer: FaPray,
+  stone: GiStoneBlock,
+  flask: FaFlask,
+  headMassage: FaUserCircle,
+  pregnancy: FaBaby,
+  postnatal: FaBabyCarriage,
+  footMassage: GiFootprint,
+  manicure: FaHandSparkles,
+  pedicure: FaShoePrints,
+  silverMedal: FaMedal,
+  goldMedal: FaMedal,
+  diamond: FaGem,
+  crown: FaCrown,
+  clock: FaClock,
+  phone: FaPhone,
+  mapMarker: FaMapMarkerAlt,
+  home: FaHome,
+  spa: FaSpa,
+  whatsapp: FaWhatsapp,
+  calendar: FaCalendarAlt,
+  checkCircle: FaCheckCircle,
+  waves: LuWaves,
+  flower: LuFlower2,
+  sparkles: LuSparkles,
+  star: LuStar,
+};
+
+/**
+ * Returns the React Icon component for a given icon key.
+ * Falls back to FaSpa if key not found.
+ */
+export function getIcon(key: string): IconType {
+  return iconMap[key] || FaSpa;
+}
+
+// ============================================================
 // رقم واتساب الأساسي
 // ============================================================
 
 export const WHATSAPP_NUMBER = "966549986148";
 export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
-/** إنشاء رابط واتساب مع رسالة مخصصة */
 export function whatsappLink(message?: string): string {
   const base = WHATSAPP_BASE_URL;
   if (!message) return base;
@@ -65,7 +142,7 @@ export const services: Service[] = [
     price: 220,
     description:
       "جلسة مساج مريحة تهدف إلى تخفيف التوتر والإجهاد، باستخدام زيوت عطرية طبيعية وحركات ناعمة لإعادة التوازن للجسم والعقل.",
-    icon: "🌿",
+    iconKey: "leaf",
   },
   {
     id: "thai-massage",
@@ -74,7 +151,7 @@ export const services: Service[] = [
     price: 300,
     description:
       "تقنية تايلندية أصيلة تجمع بين الضغط والتمدد لتحسين المرونة وتنشيط الدورة الدموية وتخفيف آلام العضلات.",
-    icon: "🧘",
+    iconKey: "prayer",
   },
   {
     id: "hot-stone-massage",
@@ -83,7 +160,7 @@ export const services: Service[] = [
     price: 350,
     description:
       "تدليك فاخر باستخدام أحجار البازلت الساخنة لتخفيف التوتر العضلي العميق وتحسين تدفق الطاقة في الجسم.",
-    icon: "🪨",
+    iconKey: "stone",
   },
   {
     id: "cupping-massage",
@@ -92,7 +169,7 @@ export const services: Service[] = [
     price: 250,
     description:
       "علاج بالحجامة لتخفيف آلام العضلات وتحسين الدورة الدموية وإزالة السموم من الجسم بأسلوب آمن وفعال.",
-    icon: "🫙",
+    iconKey: "flask",
   },
   {
     id: "head-neck-massage",
@@ -101,7 +178,7 @@ export const services: Service[] = [
     price: 180,
     description:
       "تدليك مكثف لمنطقة الرأس والرقبة والأكتاف لتخفيف الصداع والتوتر الناتج عن الجلوس الطويل والعمل المكتبي.",
-    icon: "💆",
+    iconKey: "headMassage",
   },
   {
     id: "pregnancy-massage",
@@ -110,7 +187,7 @@ export const services: Service[] = [
     price: 270,
     description:
       "مساج لطيف وآمن للحوامل يساعد على تخفيف آلام الظهر وتحسين النوم وتقليل التورم في القدمين.",
-    icon: "🤰",
+    iconKey: "pregnancy",
   },
   {
     id: "postnatal-massage",
@@ -119,7 +196,7 @@ export const services: Service[] = [
     price: 280,
     description:
       "جلسة عناية مخصصة لفترة النفاس تساعد على استعادة الجسم لحيويته وتخفيف التوتر بعد الولادة.",
-    icon: "👶",
+    iconKey: "postnatal",
   },
   {
     id: "foot-massage",
@@ -128,7 +205,7 @@ export const services: Service[] = [
     price: 180,
     description:
       "تدليك متخصص للأرجل والقدمين لتخفيف التعب وتحسين الدورة الدموية بعد يوم طويل من الوقوف أو المشي.",
-    icon: "🦶",
+    iconKey: "footMassage",
   },
   {
     id: "manicure",
@@ -137,7 +214,7 @@ export const services: Service[] = [
     price: 100,
     description:
       "عناية كاملة بالأظافر وتشذيبها وتلميعها مع ترطيب اليدين لتحصلي على أظافر جميلة ومشرقة.",
-    icon: "💅",
+    iconKey: "manicure",
   },
   {
     id: "pedicure",
@@ -146,7 +223,7 @@ export const services: Service[] = [
     price: 120,
     description:
       "عناية شاملة بالقدمين والأظافر مع تقشير وترطيب لإعادة النعومة والجمال لقدميك.",
-    icon: "🦶",
+    iconKey: "pedicure",
   },
 ];
 
@@ -167,7 +244,7 @@ export const subscriptions: SubscriptionPackage[] = [
     ],
     savings: 181,
     color: "silver",
-    icon: "🥈",
+    iconKey: "silverMedal",
   },
   {
     id: "gold",
@@ -177,12 +254,12 @@ export const subscriptions: SubscriptionPackage[] = [
     features: [
       "٨ جلسات مساج شهرياً",
       "أولوية مضاعفة في الحجز",
-      "خصم ١٠٪ على الخدمات الإضافية",
+      "خصم ١٠٪ على الخدمات الإضافة",
     ],
     savings: 461,
     popular: true,
     color: "gold",
-    icon: "🥇",
+    iconKey: "goldMedal",
   },
   {
     id: "platinum",
@@ -197,7 +274,7 @@ export const subscriptions: SubscriptionPackage[] = [
     ],
     savings: 841,
     color: "platinum",
-    icon: "💎",
+    iconKey: "diamond",
   },
 ];
 
@@ -213,14 +290,6 @@ export const contactInfo: ContactInfo = {
 };
 
 // ============================================================
-// مساعد: تنسيق السعر بالريال السعودي
-// ============================================================
-
-export function formatPrice(price: number): string {
-  return `${price.toLocaleString("ar-SA")} ر.س`;
-}
-
-// ============================================================
 // روابط التنقل
 // ============================================================
 
@@ -230,3 +299,11 @@ export const navLinks = [
   { href: "/subscriptions", label: "الباقات" },
   { href: "/contact", label: "تواصل معنا" },
 ] as const;
+
+// ============================================================
+// مساعد: تنسيق السعر بالريال السعودي
+// ============================================================
+
+export function formatPrice(price: number): string {
+  return `${price.toLocaleString("ar-SA")} ر.س`;
+}

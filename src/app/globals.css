@@ -1,36 +1,58 @@
 @import "tailwindcss";
 
 /* ================================================================
-   نظام التصميم — Home Spa
-   الخط: Cairo من Google Fonts
-   الألوان: لوحة ذهبية دافئة فاخرة
+   Home Spa · نظام التصميم الفاخر
+   Forest Emerald + Burnished Gold · Luxury 5-Star Spa
+   Tactile, serene, opulent. Not cream. Not brass. Not AI-default.
+
+   الخط: Cairo (Arabic RTL) + Playfair Display (brand accent)
    ================================================================ */
 
-/* تعريف الألوان المخصصة والخطوط عبر @theme (Tailwind v4) */
 @theme {
-  --color-primary: #C9A96E;
-  --color-primary-dark: #B8953F;
-  --color-primary-light: #DCC89E;
-  --color-secondary: #F5F0EB;
-  --color-secondary-dark: #E8DFD5;
-  --color-dark: #3D2C2E;
-  --color-dark-light: #5C4245;
-  --color-dark-muted: #6B5558;
-  --color-offwhite: #FDFBF7;
-  --color-accent: #9CAF88;
-  --color-accent-dark: #7D9366;
-  --color-accent-light: #C5D1B8;
+  /* Burnished Gold — accent, CTAs, decorative */
+  --color-primary: #B8860B;
+  --color-primary-dark: #8B6914;
+  --color-primary-light: #D4B84B;
+  --color-primary-pale: #FAE8B0;
 
+  /* Warm Bone — surfaces, light sections (not cream, not AI-default) */
+  --color-bone: #F0EDE6;
+  --color-bone-dark: #E6E0D7;
+
+  /* Espresso — primary text, dark sections */
+  --color-espresso: #1A1714;
+  --color-espresso-light: #2D2925;
+
+  /* Muted text */
+  --color-muted: #6B6560;
+  --color-muted-light: #94908B;
+
+  /* Off-white — page background */
+  --color-offwhite: #FAFAF7;
+
+  /* Forest Emerald — spa nature accent, checkmarks, badges */
+  --color-emerald: #2D6A4F;
+  --color-emerald-dark: #1B4332;
+  --color-emerald-light: #40916C;
+
+  /* Card surface */
+  --color-surface: #FFFFFF;
+
+  /* Typography */
   --font-sans: 'Cairo', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Cairo', ui-sans-serif, system-ui, sans-serif;
 
+  /* Radii */
   --radius-card: 1rem;
   --radius-button: 0.75rem;
+  --radius-sm: 0.5rem;
 }
 
-/* الطبقة الأساسية */
+/* ================================================================
+   Base — reset, typography, smoothness
+   ================================================================ */
 @layer base {
-  * {
+  *, *::before, *::after {
     box-sizing: border-box;
   }
 
@@ -39,108 +61,144 @@
     direction: rtl;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     background-color: var(--color-offwhite);
-    color: var(--color-dark);
+    color: var(--color-espresso);
     font-family: var(--font-sans);
     line-height: 1.75;
+    font-size: 16px;
   }
 
-  /* أنماط العناوين العامة */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    line-height: 1.3;
-    color: var(--color-dark);
+    line-height: 1.25;
+    color: var(--color-espresso);
+    text-wrap: balance;
   }
 
-  h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-  h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+  h1 { font-size: clamp(2rem, 5vw, 3.75rem); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); letter-spacing: -0.01em; }
   h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
 
+  p {
+    max-width: 65ch;
+  }
+
   a {
-    color: var(--color-primary);
+    color: var(--color-emerald);
     transition: color 0.2s ease;
   }
 
   a:hover {
-    color: var(--color-primary-dark);
+    color: var(--color-emerald-dark);
+  }
+
+  ::selection {
+    background-color: var(--color-primary-light);
+    color: var(--color-espresso);
   }
 }
 
-/* مكونات قابلة لإعادة الاستخدام */
+/* ================================================================
+   Components — buttons, cards, dividers, sections
+   ================================================================ */
 @layer components {
-  /* زر ذهبي أساسي */
+  /* Primary CTA — burnished gold */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-    color: white;
+    color: #FFFFFF;
     font-weight: 600;
-    padding: 0.75rem 2rem;
+    padding: 0.875rem 2rem;
     border-radius: var(--radius-button);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(201, 169, 110, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(184, 134, 11, 0.25), 0 8px 24px rgba(184, 134, 11, 0.12);
     cursor: pointer;
     border: none;
     font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-primary:hover::after {
+    opacity: 1;
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
-    box-shadow: 0 6px 20px rgba(201, 169, 110, 0.45);
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.35), 0 12px 32px rgba(184, 134, 11, 0.18);
     transform: translateY(-1px);
   }
 
-  /* زر الخط الخارجي */
+  .btn-primary:active {
+    transform: translateY(0) scale(0.985);
+    transition: all 0.1s ease;
+  }
+
+  /* Secondary outline button */
   .btn-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     background: transparent;
-    color: var(--color-primary);
+    color: var(--color-espresso);
     font-weight: 600;
-    padding: 0.7rem 1.75rem;
+    padding: 0.8rem 1.75rem;
     border-radius: var(--radius-button);
-    border: 2px solid var(--color-primary);
-    transition: all 0.3s ease;
+    border: 1.5px solid var(--color-bone-dark);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     font-family: var(--font-sans);
+    font-size: 0.9375rem;
   }
 
   .btn-outline:hover {
-    background: var(--color-primary);
-    color: white;
+    border-color: var(--color-primary);
+    color: var(--color-primary-dark);
+    background: var(--color-primary-pale);
     transform: translateY(-1px);
   }
 
-  /* بطاقة أنيقة */
+  /* Premium card */
   .card {
-    background: white;
+    background: var(--color-surface);
     border-radius: var(--radius-card);
-    box-shadow: 0 1px 3px rgba(61, 44, 46, 0.06), 0 4px 16px rgba(61, 44, 46, 0.04);
-    transition: all 0.3s ease;
+    border: 1px solid var(--color-bone);
+    box-shadow: 0 1px 2px rgba(26, 23, 20, 0.04), 0 4px 12px rgba(26, 23, 20, 0.03);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .card:hover {
-    box-shadow: 0 4px 12px rgba(61, 44, 46, 0.1), 0 8px 32px rgba(61, 44, 46, 0.06);
-    transform: translateY(-2px);
+    border-color: var(--color-primary-light);
+    box-shadow: 0 4px 16px rgba(26, 23, 20, 0.08), 0 16px 40px rgba(26, 23, 20, 0.05);
+    transform: translateY(-3px);
   }
 
-  /* شريط زخرفي ذهبي */
+  /* Gold decorative divider */
   .divider-gold {
-    width: 60px;
+    width: 64px;
     height: 3px;
-    background: var(--color-primary);
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
     border-radius: 2px;
-    margin: 0 auto;
   }
 
-  /* قسم ممتلئ */
+  /* Section container */
   .section {
     padding: 5rem 1.5rem;
     max-width: 1200px;
@@ -148,60 +206,46 @@
   }
 
   @media (min-width: 768px) {
-    .section {
-      padding: 6rem 2rem;
-    }
+    .section { padding: 6rem 2rem; }
   }
 
   @media (min-width: 1024px) {
-    .section {
-      padding: 7rem 2rem;
-    }
+    .section { padding: 7rem 2.5rem; }
   }
 
-  /* تدرج لوني ناعم */
+  /* Warm gradient background (bone → offwhite, not cream) */
   .bg-spa-warm {
-    background: linear-gradient(180deg, var(--color-offwhite) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(180deg, var(--color-offwhite) 0%, var(--color-bone) 50%, var(--color-offwhite) 100%);
   }
 
+  /* Dark section — deep espresso with emerald undertone */
   .bg-spa-dark {
-    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+    background: linear-gradient(160deg, #1A1814 0%, #15211A 40%, #1A1714 100%);
   }
 
-  /* نص ذهبي متدرج */
-  .text-gradient-gold {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* تأثير التموج عند التحويم */
+  /* Hover lift effect */
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
   }
 
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(61, 44, 46, 0.12);
+    box-shadow: 0 8px 30px rgba(26, 23, 20, 0.1);
   }
 }
 
-/* حركات CSS */
+/* ================================================================
+   Utilities — animations, scrollbar, modal
+   ================================================================ */
 @layer utilities {
+  /* Smooth fade-in-up */
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease forwards;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-delay-100 { animation-delay: 0.1s; }
@@ -210,46 +254,38 @@
   .animate-delay-400 { animation-delay: 0.4s; }
   .animate-delay-500 { animation-delay: 0.5s; }
 
-  /* شريط تمرير مخصص */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--color-secondary);
-  }
-
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--color-bone); }
   ::-webkit-scrollbar-thumb {
     background: var(--color-primary-light);
     border-radius: 4px;
   }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary);
-  }
-
-  /* حركات المودال */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95) translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
+  /* Modal animations */
+  @keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes modalScaleIn {
+    from { opacity: 0; transform: scale(0.96) translateY(8px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.2s ease-out forwards;
+    animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.25s ease-out forwards;
+    animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-fade-in,
+    .animate-scale-in {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 }
